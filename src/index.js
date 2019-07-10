@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Button} from 'bootstrap-4-react';
+import { Jumbotron, Container, Display4 } from 'bootstrap-4-react';
 import './index.css';
 
 function Square(props) {
@@ -8,6 +10,19 @@ function Square(props) {
       {props.value}
     </button>
   );
+}
+
+export default class App extends Component {
+  render() {
+    return (
+      <Jumbotron fluid>
+        <Container>
+          <Display4>Fluid jumbotron</Display4>
+          <p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </Container>
+      </Jumbotron>
+    )
+  }
 }
 
 class Board extends React.Component {
@@ -95,7 +110,7 @@ handleClick(i) {
         'Go to game start';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <Button success onClick={() => this.jumpTo(move)}>{desc}</Button>
         </li>
       );
     });
